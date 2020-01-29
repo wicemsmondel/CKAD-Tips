@@ -41,3 +41,7 @@ dd
 ```
 u
 ```
+
+# TIPS DE RECHERCHE SUR KUBERNETES.IO
+
+## Pour les Cronjob: recherchez "cron expression"
