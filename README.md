@@ -41,6 +41,10 @@ dd
 ```
 u
 ```
+## Pour voir les numéros de ligne
+```
+: set nu
+```
 
 # TIPS DE RECHERCHE SUR KUBERNETES.IO
 
