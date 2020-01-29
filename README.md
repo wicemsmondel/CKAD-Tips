@@ -1,41 +1,42 @@
-# KUBECTL COMMANDS
+# COMMANDES KUBECTL POUR GENERER DES TEMPLATES DE YAML
 
-## Create Pod
+## Créer un Pod
 ```
-kubectl run nginx1 --image=nginx --restart=Never --labels=app=myapp --port=80 -o yaml --dry-run > my-pod.yaml
+kubectl run toto-pod --image=nginx --restart=Never --labels=app=myapp --port=80 -o yaml --dry-run > my-pod.yaml
 ```
-## Create Deployment 
+## Créer un Deployment 
 ### Même que commande que pour le pod sauf sans le --restart=Never & ajouter --replicas=3
 ```
-kubectl run nginx1 --replicas=3 --image=nginx --labels=app=myapp --port=80 -o yaml --dry-run > my-pod.yaml
+kubectl run toto-deploy --replicas=3 --image=nginx --labels=app=myapp --port=80 -o yaml --dry-run > my-deploy.yaml
 ```
-## Expose Deployment ClusterIP
+## Exposer un Deployment de type ClusterIP
 ```
-kubectl expose deployment pizza-deployment --name=pizza-service --port=30080 --target-port=80 --namespace=pizza
+kubectl expose deployment toto-deployment --name=toto-service --port=30080 --target-port=80 --namespace=toto --dry-run > my-service.yaml
 ```
-## Expose Deployment NodePort
-### Allez dans le yaml et modifier targetPort en nodePort
+## Exposer un Deployment de type NodePort
+### !!! Allez dans le yaml et modifier targetPort en nodePort !!!
 ```
-kubectl expose deployment pizza-deployment --name=pizza-service --type=NodePort --port=30080 --namespace=pizza > service.yaml
+kubectl expose deployment toto-deployment --name=toto-service --type=NodePort --port=30080 --namespace=toto --dry-run > my-service.yaml
 ```
 
 
-## Create Secret
-### A partir d'un ou de plusieurs fichiers
+## Créer un Secret
+### A partir d'un ou plusieurs fichiers
 ```
-kubectl create secret generic <secretName> --from-file=./username.txt --from-file=./password.txt
+kubectl create secret generic toto-secret --from-file=./username.txt --from-file=./password.txt
 ```
 ### A partir d'un littéral
 ```
-kubectl create secret generic <secretName> --from-literal=password=Kub3rn3t3sRul3s!
+kubectl create secret generic toto-secret --from-literal=password=Kub3rn3t3sRul3s!
 ```
-# VIM SHORTCUTS
+
+# RACCOURCIS POUR VIM
 
 ## Pour effacer une ligne
 ```
 dd
 ```
-## Pour annuler l'effacement d'une ligne
+## Pour annuler la dernière commande
 ```
 u
 ```
