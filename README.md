@@ -10,6 +10,10 @@ kubectl run toto-pod --image=nginx --restart=Never --labels=app=myapp --port=80 
 ```
 kubectl run toto-deploy --replicas=3 --image=nginx --labels=app=myapp --port=80 -o yaml --dry-run > my-deploy.yaml
 ```
+#### Autre façon de créer un Deployment basique qui ne fonctionne pas avec les options replicas & port
+```
+kubectl create deployment nginx  --image=nginx:1.7.8  --dry-run -o yaml > deploy.yaml
+```
 ### Exposer un Deployment de type ClusterIP
 ```
 kubectl expose deployment toto-deployment --name=toto-service --port=30080 --target-port=80 --namespace=toto -o yaml --dry-run > my-service.yaml
