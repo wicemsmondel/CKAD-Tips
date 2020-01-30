@@ -22,6 +22,7 @@ kubectl expose deployment toto-deployment --name=toto-service --type=NodePort --
 
 
 ### Créer un Secret
+#### !!! le mot generic est obligatoire !!!
 #### A partir d'un ou plusieurs fichiers
 ```
 kubectl create secret generic toto-secret --from-file=./username.txt --from-file=./password.txt
@@ -41,6 +42,16 @@ kubectl create configmap  toto-configmap --from-file=./username.txt --from-file=
 ```
 kubectl create configmap  toto-configmap --from-literal=password=Kub3rn3t3sRul3s!
 ```
+### Créer un Job
+#### !!!  !!!
+```
+kubectl create job my-job --image=busybox --dry-run -oyaml -- date 
+```
+### Créer un CronJob
+```
+kubectl run mycron --image=busybox --schedule="*/1 * * * *" --restart=OnFailure -o yaml --dry-run -- date
+```
+
 
 # RACCOURCIS POUR VIM
 
