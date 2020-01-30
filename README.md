@@ -31,6 +31,17 @@ kubectl create secret generic toto-secret --from-file=./username.txt --from-file
 kubectl create secret generic toto-secret --from-literal=password=Kub3rn3t3sRul3s!
 ```
 
+### Créer un ConfigMap
+#### !!! Comme le secret sauf sans le mot generic !!!
+#### A partir d'un ou plusieurs fichiers
+```
+kubectl create configmap  toto-configmap --from-file=./username.txt --from-file=./password.txt
+```
+#### A partir d'un littéral
+```
+kubectl create configmap  toto-configmap --from-literal=password=Kub3rn3t3sRul3s!
+```
+
 # RACCOURCIS POUR VIM
 
 ## Pour effacer une ligne
