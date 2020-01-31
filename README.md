@@ -35,7 +35,10 @@ kubectl create secret generic toto-secret --from-file=./username.txt --from-file
 ```
 kubectl create secret generic toto-secret --from-literal=password=Kub3rn3t3sRul3s!
 ```
-
+#### A partir d'un fichier de variables d'environnement
+```
+k create secret generic my-secret --from-env-file=env_file
+```
 ### Créer un ConfigMap
 #### !!! Comme le secret sauf sans le mot generic !!!
 #### A partir d'un ou plusieurs fichiers
@@ -48,6 +51,10 @@ kubectl create configmap  toto-configmap --from-literal=password=Kub3rn3t3sRul3s
 ```
 ### Créer un Job
 #### !!!  !!!
+```
+kubectl run busybox --image=busybox --restart=OnFailure -- /bin/sh -c 'echo hello;sleep 30;echo world'
+```
+#### OU
 ```
 kubectl create job my-job --image=busybox --dry-run -oyaml -- date 
 ```
